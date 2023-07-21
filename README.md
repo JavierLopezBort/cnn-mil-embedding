@@ -17,10 +17,11 @@ SCRIPTS
 
 There are two main parts in this repository: dataset creation and feature extraction / image classification
 
-Dataset creation
-All the necessary scripts for this part are inside the "dataset" folder. You can follow these steps:
+1. Dataset creation
 
-1.1 Create a root folder where you can store all the raw WSI. In our case is called "wsi_100x". Here, you should create two subfolders with the corresponding name of the classes and store the raw images inside them.
+You can follow these steps:
+
+1.1 Create a root folder where you can store all the raw WSI. In our case is called "dataset/wsi_100x". Here, you should create two subfolders with the corresponding name of the classes and store the raw images inside them.
 
 1.2 Now you can oversample if necessary. In this case, the "data_augmentation.py" file creates the new WSI images and store them in the same root folder. You can decide the number of times that you want to oversample with the variable "increase_size".
 
@@ -33,5 +34,7 @@ All the necessary scripts for this part are inside the "dataset" folder. You can
 2. Feature extraction and image classification.
 
 Depending on the model, dataset and MIL embedding approach desired, you can use any of the files: tiny_vgg_patch_max.py, tiny_vgg_patch_mean.py, tiny_vgg_wsi, vgg_patch_max.py, vgg_patch_mean.py and vgg_wsi.py. To run them, you need to use a linux terminal and pass the root folder of the tensors dataset through the "-r" argument, e.g.:
+
 python3 tiny_vgg_patch_max.py -r dataset/patches_tensors_100x
+
 The script takes sample tensors as an input and prints a .pth file with the name of the model and stores several results in a dictionary. This dictionary contains several lists that stores the performance metrics results for each of the 100 epochs. The performance metrics are: loss, accuracy, precision, recall and specificity. It also stores the model with the updated weights.
