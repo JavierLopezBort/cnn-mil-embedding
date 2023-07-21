@@ -9,6 +9,12 @@ Required libraries:
 - Pytorch
 - Sklearn
 - Path
+- Argparse
+- glob
+- os
+- pathlib
+- PIL
+- matplotlib.pyplot
 
 Optional but highly recommended libraries:
 - Pytorch CUDA
